@@ -1,4 +1,4 @@
-From python:3
+From python:3.8
 
 MAINTAINER Shramik
 
@@ -7,6 +7,11 @@ RUN pip install flask_restful
 
 ADD python.py /python.py
 
-WORKDIR /
+WORKDIR /code
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY src/ .
 EXPOSE 80
-CMD ["python", "/python.py"]
+
+CMD [ "python", "./server.py" ] 
