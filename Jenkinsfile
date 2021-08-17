@@ -1,12 +1,11 @@
-def dockerhub_shramik
 pipeline {
     agent any
  stages {
   stage('Docker Build and Tag') {
            steps {
               
-                sh 'docker build -t dockerhub_shramik:latest .'
-                sh 'docker tag dockerhub_shramik:latest dockerhub_shramik:$BUILD_NUMBER'
+                sh 'docker build -t shram/dockerhub_shramik:latest .'
+                sh 'docker tag shram/dockerhub_shramik:latest shram/dockerhub_shramik:$BUILD_NUMBER'
           }
         }
      
@@ -14,10 +13,10 @@ pipeline {
           
             steps {
         withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-          sh  'docker push dockerhub_shramik:$BUILD_NUMBER'
+          sh  'docker push shram/dockerhub_shramik:$BUILD_NUMBER'
         }
                   
         }
     }
-}
+  }
 }
