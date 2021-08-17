@@ -4,21 +4,19 @@ pipeline {
   stage('Docker Build and Tag') {
            steps {
               
-                sh 'docker build -t ibanez6123/python_app:latest .' 
-                sh 'docker tag ibanez6123/python_app:latest ibanez6123/python_app:$BUILD_NUMBER'
-               
+                sh 'docker build -t dockerhub_username/repository_name/docker-jenkins-integration .'               
           }
         }
      
   stage('Publish image to Docker Hub') {
           
             steps {
-        withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) 
-              {
-                  sh  'docker push ibanez6123/python_app:$BUILD_NUMBER'
-              }
-                  
+                    withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) 
+                    bat "docker tag dockerhub_username/repository_name/docker-jenkins-integration dockerhub_username/repository_name:docker-jenkins-integration"
+                    bat "docker push dockerhub_username/repository_name:docker-jenkins-integration"
+                
            }
+
       }
     }
 }
