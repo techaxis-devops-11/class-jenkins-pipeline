@@ -1,2 +1,2 @@
-my_string = "Hello, World! \n Welcome !!!"
+my_string = "Welcome to TechAxis"
 print(my_string)
