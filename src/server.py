@@ -3,7 +3,7 @@ server = Flask(__name__)
 
 @server.route("/")
 def hello():
-    return "Hello World! \n Welcome !!!"
+    return "Welcome to TechAxis !!!"
 
 
 if __name__ == "__main__":
