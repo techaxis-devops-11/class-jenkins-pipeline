@@ -1,7 +1,8 @@
 version: '3.3'
 services:
     python_app:
+        build:
+          context: .
         ports:
             - '80:80'
         container_name: helloworld
-        image: 'shram/dockerhub_shramik:latest'
