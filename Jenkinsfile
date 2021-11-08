@@ -38,7 +38,7 @@ pipeline {
 
         }
 
-        stage('Deploy our image') { 
+        stage('Push image to Dockerhub') { 
 
             steps { 
 
@@ -66,6 +66,14 @@ pipeline {
 
         } 
 
+       stage('Run Docker container on remote hosts') {
+
+             steps {
+             sh 'docker -H ssh://ubuntu@13.233.90.96 run -d -p 81:80 --name=helloworld shram/dockerhub_shramik'
+            }
+           
+        }
+    
     }
 
 }
