@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    
+    	environment {
+		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+	}
  stages {
      stage('Docker Build and Tag') {
                steps {
@@ -12,7 +16,8 @@ pipeline {
      stage('Publish image to Docker Hub') {
 
                 steps {
-            withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
+            {
+              sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
               sh  'docker push shram/dockerhub_shramik:latest'
               sh  'docker push shram/dockerhub_shramik:$BUILD_NUMBER'
             }
