@@ -1,4 +1,4 @@
-Hello, World (Python/Flask)
+Hello, World (Python/Flask).
 
 This is a Python/Flask template for building a microservice in Docker.
 Repository structure
