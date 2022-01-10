@@ -69,7 +69,7 @@ pipeline {
        stage('Run Docker container on remote hosts') {
 
              steps {
-             sh 'docker -H ssh://ubuntu@18.222.174.242 run -d -p 80:80 --name=helloworld shram/dockerhub_shramik'
+             sh 'docker -H ssh://ubuntu@3.144.216.83 run -d -p 82:80 --name=shramik shram/dockerhub_shramik'
             }
            
         }
