@@ -2,7 +2,7 @@ pipeline {
 
     environment { 
 
-        registry = "shram/dockerhub_shramik" 
+        registry = "techaxis/python" 
 
         registryCredential = 'dockerhub' 
 
@@ -69,7 +69,7 @@ pipeline {
        stage('Run Docker container on remote hosts') {
 
              steps {
-             sh 'docker -H ssh://ubuntu@3.144.216.83 run -d -p 80:80 --name=helloworld shram/dockerhub_shramik'
+             sh 'docker -H ssh://ubuntu@54.90.247.48 run -d -p 80:80 --name=helloworld techaxis/python'
             }
            
         }
