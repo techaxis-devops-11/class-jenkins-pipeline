@@ -69,7 +69,7 @@ pipeline {
        stage('Run Docker container on remote hosts') {
 
              steps {
-             sh 'docker-compose ssh://ubuntu@54.90.247.48 -f /home/ubuntu/helloworld up --build -d'
+             sh 'docker-compose --build -d'
             }
            
         }
