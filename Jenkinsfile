@@ -69,7 +69,7 @@ pipeline {
        stage('Run Docker container on remote hosts') {
 
              steps {
-             sh 'docker -H ssh://ubuntu@54.90.247.48 run -d -p 8081:80 --name=helloworld2 techaxis/python'
+             sh 'ssh ubuntu@54.90.247.48 && pwd && cd /home/ubuntu/helloworld && docker-compose up --build -d'
             }
            
         }
