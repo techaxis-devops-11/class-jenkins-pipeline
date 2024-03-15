@@ -13,8 +13,8 @@ The main files in this repository are:
 
 # TASK 102
 
-Nischal: Create and Automate CI/CD Pipeline to Deploy Java-Based Web Application on Tomcat Server.
+1. Nischal: Create and Automate CI/CD Pipeline to Deploy Java-Based Web Application on Tomcat Server.
 
-Samyog: Create and Automate CI/CD Pipeline to Deploy PHP-Based Application on Apache HTTPD & Nginx Web Servers.
+2. Samyog: Create and Automate CI/CD Pipeline to Deploy PHP-Based Application on Apache HTTPD & Nginx Web Servers.
 
-Bijay: Create and Automate CI/CD Pipeline to Deploy Python-Based Application on Apache HTTPD & Nginx Web Server.
+3. Bijay: Create and Automate CI/CD Pipeline to Deploy Python-Based Application on Apache HTTPD & Nginx Web Server.
