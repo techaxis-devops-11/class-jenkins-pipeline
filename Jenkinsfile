@@ -29,7 +29,6 @@ pipeline {
             steps {
                 // Run SonarQube analysis
                 script {
-                    def scannerHome = tool 'SonarQube Scanner'
                     withSonarQubeEnv('SonarQube Server') {
                         sh "${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=pipeline-job_python \
