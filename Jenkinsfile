@@ -23,7 +23,9 @@ pipeline {
             }
 
         } 
-
+        stage('sonarqube scan'){
+            withSonarQubeEnv("SonarQube")
+        }
         stage('Building our image') { 
 
             steps { 
