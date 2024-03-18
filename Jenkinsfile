@@ -8,6 +8,8 @@ pipeline {
 
         dockerImage = '' 
 
+        SONAR_TOKEN = credentials('sonar_token')
+
     }
 
     agent any 
@@ -23,9 +25,21 @@ pipeline {
             }
 
         } 
-        stage('sonarqube scan'){
-            steps{
-                withSonarQubeEnv("SonarQube")
+        stage('SonarQube Analysis') {
+            steps {
+                // Run SonarQube analysis
+                script {
+                    def scannerHome = tool 'SonarQube Scanner'
+                    withSonarQubeEnv('SonarQube Server') {
+                        sh "${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=pipeline-job_python \
+                            -Dsonar.sources=. \
+                            -Dsonar.python.coverage.reportPaths=coverage.xml \
+                            -Dsonar.python.xunit.reportPath=xunit.xml \
+                            -Dsonar.host.url=http://3.139.68.104:9000/ \
+                            -Dsonar.login=${env.SONAR_TOKEN}"
+                    }
+                }
             }
         }
         stage('Building our image') { 
